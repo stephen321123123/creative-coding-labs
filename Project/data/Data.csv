@@ -1,7 +1,7 @@
-﻿Statistic Label,CensusYear,County,Sex,UNIT,VALUE
-Population at Each Census,1841,State,Both sexes,Number,6528799
-Population at Each Census,1841,State,Male,Number,3222485
-Population at Each Census,1841,State,Female,Number,3306314
+﻿Statistic_Label,Census_Year,County,Sex,UNIT,VALUE
+Population at Each Census,1841,Total,Both sexes,Number,6528799
+Population at Each Census,1841,Total,Male,Number,3222485
+Population at Each Census,1841,Total,Female,Number,3306314
 Population at Each Census,1841,Carlow,Both sexes,Number,86228
 Population at Each Census,1841,Carlow,Male,Number,42428
 Population at Each Census,1841,Carlow,Female,Number,43800
@@ -80,9 +80,9 @@ Population at Each Census,1841,Donegal,Female,Number,150627
 Population at Each Census,1841,Monaghan,Both sexes,Number,200442
 Population at Each Census,1841,Monaghan,Male,Number,98071
 Population at Each Census,1841,Monaghan,Female,Number,102371
-Population at Each Census,1851,State,Both sexes,Number,5111557
-Population at Each Census,1851,State,Male,Number,2494478
-Population at Each Census,1851,State,Female,Number,2617079
+Population at Each Census,1851,Total,Both sexes,Number,5111557
+Population at Each Census,1851,Total,Male,Number,2494478
+Population at Each Census,1851,Total,Female,Number,2617079
 Population at Each Census,1851,Carlow,Both sexes,Number,68078
 Population at Each Census,1851,Carlow,Male,Number,33016
 Population at Each Census,1851,Carlow,Female,Number,35062
@@ -161,9 +161,9 @@ Population at Each Census,1851,Donegal,Female,Number,130435
 Population at Each Census,1851,Monaghan,Both sexes,Number,141823
 Population at Each Census,1851,Monaghan,Male,Number,68827
 Population at Each Census,1851,Monaghan,Female,Number,72996
-Population at Each Census,1861,State,Both sexes,Number,4402111
-Population at Each Census,1861,State,Male,Number,2169042
-Population at Each Census,1861,State,Female,Number,2233069
+Population at Each Census,1861,Total,Both sexes,Number,4402111
+Population at Each Census,1861,Total,Male,Number,2169042
+Population at Each Census,1861,Total,Female,Number,2233069
 Population at Each Census,1861,Carlow,Both sexes,Number,57137
 Population at Each Census,1861,Carlow,Male,Number,28139
 Population at Each Census,1861,Carlow,Female,Number,28998
@@ -242,9 +242,9 @@ Population at Each Census,1861,Donegal,Female,Number,121520
 Population at Each Census,1861,Monaghan,Both sexes,Number,126482
 Population at Each Census,1861,Monaghan,Male,Number,61942
 Population at Each Census,1861,Monaghan,Female,Number,64540
-Population at Each Census,1871,State,Both sexes,Number,4053187
-Population at Each Census,1871,State,Male,Number,1992468
-Population at Each Census,1871,State,Female,Number,2060719
+Population at Each Census,1871,Total,Both sexes,Number,4053187
+Population at Each Census,1871,Total,Male,Number,1992468
+Population at Each Census,1871,Total,Female,Number,2060719
 Population at Each Census,1871,Carlow,Both sexes,Number,51650
 Population at Each Census,1871,Carlow,Male,Number,25464
 Population at Each Census,1871,Carlow,Female,Number,26186
@@ -323,9 +323,9 @@ Population at Each Census,1871,Donegal,Female,Number,112254
 Population at Each Census,1871,Monaghan,Both sexes,Number,114969
 Population at Each Census,1871,Monaghan,Male,Number,55961
 Population at Each Census,1871,Monaghan,Female,Number,59008
-Population at Each Census,1881,State,Both sexes,Number,3870020
-Population at Each Census,1881,State,Male,Number,1912438
-Population at Each Census,1881,State,Female,Number,1957582
+Population at Each Census,1881,Total,Both sexes,Number,3870020
+Population at Each Census,1881,Total,Male,Number,1912438
+Population at Each Census,1881,Total,Female,Number,1957582
 Population at Each Census,1881,Carlow,Both sexes,Number,46568
 Population at Each Census,1881,Carlow,Male,Number,23078
 Population at Each Census,1881,Carlow,Female,Number,23490
@@ -404,9 +404,9 @@ Population at Each Census,1881,Donegal,Female,Number,105364
 Population at Each Census,1881,Monaghan,Both sexes,Number,102748
 Population at Each Census,1881,Monaghan,Male,Number,50077
 Population at Each Census,1881,Monaghan,Female,Number,52671
-Population at Each Census,1891,State,Both sexes,Number,3468694
-Population at Each Census,1891,State,Male,Number,1728601
-Population at Each Census,1891,State,Female,Number,1740093
+Population at Each Census,1891,Total,Both sexes,Number,3468694
+Population at Each Census,1891,Total,Male,Number,1728601
+Population at Each Census,1891,Total,Female,Number,1740093
 Population at Each Census,1891,Carlow,Both sexes,Number,40936
 Population at Each Census,1891,Carlow,Male,Number,20552
 Population at Each Census,1891,Carlow,Female,Number,20384
@@ -485,9 +485,9 @@ Population at Each Census,1891,Donegal,Female,Number,94157
 Population at Each Census,1891,Monaghan,Both sexes,Number,86206
 Population at Each Census,1891,Monaghan,Male,Number,42727
 Population at Each Census,1891,Monaghan,Female,Number,43479
-Population at Each Census,1901,State,Both sexes,Number,3221823
-Population at Each Census,1901,State,Male,Number,1610085
-Population at Each Census,1901,State,Female,Number,1611738
+Population at Each Census,1901,Total,Both sexes,Number,3221823
+Population at Each Census,1901,Total,Male,Number,1610085
+Population at Each Census,1901,Total,Female,Number,1611738
 Population at Each Census,1901,Carlow,Both sexes,Number,37748
 Population at Each Census,1901,Carlow,Male,Number,19009
 Population at Each Census,1901,Carlow,Female,Number,18739
@@ -566,9 +566,9 @@ Population at Each Census,1901,Donegal,Female,Number,87278
 Population at Each Census,1901,Monaghan,Both sexes,Number,74611
 Population at Each Census,1901,Monaghan,Male,Number,37108
 Population at Each Census,1901,Monaghan,Female,Number,37503
-Population at Each Census,1911,State,Both sexes,Number,3139688
-Population at Each Census,1911,State,Male,Number,1589509
-Population at Each Census,1911,State,Female,Number,1550179
+Population at Each Census,1911,Total,Both sexes,Number,3139688
+Population at Each Census,1911,Total,Male,Number,1589509
+Population at Each Census,1911,Total,Female,Number,1550179
 Population at Each Census,1911,Carlow,Both sexes,Number,36252
 Population at Each Census,1911,Carlow,Male,Number,18481
 Population at Each Census,1911,Carlow,Female,Number,17771
@@ -647,9 +647,9 @@ Population at Each Census,1911,Donegal,Female,Number,83910
 Population at Each Census,1911,Monaghan,Both sexes,Number,71455
 Population at Each Census,1911,Monaghan,Male,Number,35953
 Population at Each Census,1911,Monaghan,Female,Number,35502
-Population at Each Census,1926,State,Both sexes,Number,2971992
-Population at Each Census,1926,State,Male,Number,1506889
-Population at Each Census,1926,State,Female,Number,1465103
+Population at Each Census,1926,Total,Both sexes,Number,2971992
+Population at Each Census,1926,Total,Male,Number,1506889
+Population at Each Census,1926,Total,Female,Number,1465103
 Population at Each Census,1926,Carlow,Both sexes,Number,34476
 Population at Each Census,1926,Carlow,Male,Number,17802
 Population at Each Census,1926,Carlow,Female,Number,16674
@@ -728,9 +728,9 @@ Population at Each Census,1926,Donegal,Female,Number,74408
 Population at Each Census,1926,Monaghan,Both sexes,Number,65131
 Population at Each Census,1926,Monaghan,Male,Number,33258
 Population at Each Census,1926,Monaghan,Female,Number,31873
-Population at Each Census,1936,State,Both sexes,Number,2968420
-Population at Each Census,1936,State,Male,Number,1520454
-Population at Each Census,1936,State,Female,Number,1447966
+Population at Each Census,1936,Total,Both sexes,Number,2968420
+Population at Each Census,1936,Total,Male,Number,1520454
+Population at Each Census,1936,Total,Female,Number,1447966
 Population at Each Census,1936,Carlow,Both sexes,Number,34452
 Population at Each Census,1936,Carlow,Male,Number,18066
 Population at Each Census,1936,Carlow,Female,Number,16386
@@ -809,9 +809,9 @@ Population at Each Census,1936,Donegal,Female,Number,68386
 Population at Each Census,1936,Monaghan,Both sexes,Number,61289
 Population at Each Census,1936,Monaghan,Male,Number,31994
 Population at Each Census,1936,Monaghan,Female,Number,29295
-Population at Each Census,1946,State,Both sexes,Number,2955107
-Population at Each Census,1946,State,Male,Number,1494877
-Population at Each Census,1946,State,Female,Number,1460230
+Population at Each Census,1946,Total,Both sexes,Number,2955107
+Population at Each Census,1946,Total,Male,Number,1494877
+Population at Each Census,1946,Total,Female,Number,1460230
 Population at Each Census,1946,Carlow,Both sexes,Number,34081
 Population at Each Census,1946,Carlow,Male,Number,17702
 Population at Each Census,1946,Carlow,Female,Number,16379
@@ -890,9 +890,9 @@ Population at Each Census,1946,Donegal,Female,Number,66048
 Population at Each Census,1946,Monaghan,Both sexes,Number,57215
 Population at Each Census,1946,Monaghan,Male,Number,30013
 Population at Each Census,1946,Monaghan,Female,Number,27202
-Population at Each Census,1951,State,Both sexes,Number,2960593
-Population at Each Census,1951,State,Male,Number,1506597
-Population at Each Census,1951,State,Female,Number,1453996
+Population at Each Census,1951,Total,Both sexes,Number,2960593
+Population at Each Census,1951,Total,Male,Number,1506597
+Population at Each Census,1951,Total,Female,Number,1453996
 Population at Each Census,1951,Carlow,Both sexes,Number,34162
 Population at Each Census,1951,Carlow,Male,Number,17848
 Population at Each Census,1951,Carlow,Female,Number,16314
@@ -971,9 +971,9 @@ Population at Each Census,1951,Donegal,Female,Number,63566
 Population at Each Census,1951,Monaghan,Both sexes,Number,55345
 Population at Each Census,1951,Monaghan,Male,Number,29118
 Population at Each Census,1951,Monaghan,Female,Number,26227
-Population at Each Census,1956,State,Both sexes,Number,2898264
-Population at Each Census,1956,State,Male,Number,1462928
-Population at Each Census,1956,State,Female,Number,1435336
+Population at Each Census,1956,Total,Both sexes,Number,2898264
+Population at Each Census,1956,Total,Male,Number,1462928
+Population at Each Census,1956,Total,Female,Number,1435336
 Population at Each Census,1956,Carlow,Both sexes,Number,33888
 Population at Each Census,1956,Carlow,Male,Number,17666
 Population at Each Census,1956,Carlow,Female,Number,16222
@@ -1052,9 +1052,9 @@ Population at Each Census,1956,Donegal,Female,Number,59395
 Population at Each Census,1956,Monaghan,Both sexes,Number,52064
 Population at Each Census,1956,Monaghan,Male,Number,27294
 Population at Each Census,1956,Monaghan,Female,Number,24770
-Population at Each Census,1961,State,Both sexes,Number,2818341
-Population at Each Census,1961,State,Male,Number,1416549
-Population at Each Census,1961,State,Female,Number,1401792
+Population at Each Census,1961,Total,Both sexes,Number,2818341
+Population at Each Census,1961,Total,Male,Number,1416549
+Population at Each Census,1961,Total,Female,Number,1401792
 Population at Each Census,1961,Carlow,Both sexes,Number,33342
 Population at Each Census,1961,Carlow,Male,Number,17360
 Population at Each Census,1961,Carlow,Female,Number,15982
@@ -1133,9 +1133,9 @@ Population at Each Census,1961,Donegal,Female,Number,55341
 Population at Each Census,1961,Monaghan,Both sexes,Number,47088
 Population at Each Census,1961,Monaghan,Male,Number,24588
 Population at Each Census,1961,Monaghan,Female,Number,22500
-Population at Each Census,1966,State,Both sexes,Number,2884002
-Population at Each Census,1966,State,Male,Number,1449032
-Population at Each Census,1966,State,Female,Number,1434970
+Population at Each Census,1966,Total,Both sexes,Number,2884002
+Population at Each Census,1966,Total,Male,Number,1449032
+Population at Each Census,1966,Total,Female,Number,1434970
 Population at Each Census,1966,Carlow,Both sexes,Number,33593
 Population at Each Census,1966,Carlow,Male,Number,17320
 Population at Each Census,1966,Carlow,Female,Number,16273
@@ -1214,9 +1214,9 @@ Population at Each Census,1966,Donegal,Female,Number,52943
 Population at Each Census,1966,Monaghan,Both sexes,Number,45732
 Population at Each Census,1966,Monaghan,Male,Number,23910
 Population at Each Census,1966,Monaghan,Female,Number,21822
-Population at Each Census,1971,State,Both sexes,Number,2978248
-Population at Each Census,1971,State,Male,Number,1495760
-Population at Each Census,1971,State,Female,Number,1482488
+Population at Each Census,1971,Total,Both sexes,Number,2978248
+Population at Each Census,1971,Total,Male,Number,1495760
+Population at Each Census,1971,Total,Female,Number,1482488
 Population at Each Census,1971,Carlow,Both sexes,Number,34237
 Population at Each Census,1971,Carlow,Male,Number,17502
 Population at Each Census,1971,Carlow,Female,Number,16735
@@ -1295,9 +1295,9 @@ Population at Each Census,1971,Donegal,Female,Number,52920
 Population at Each Census,1971,Monaghan,Both sexes,Number,46242
 Population at Each Census,1971,Monaghan,Male,Number,24092
 Population at Each Census,1971,Monaghan,Female,Number,22150
-Population at Each Census,1979,State,Both sexes,Number,3368217
-Population at Each Census,1979,State,Male,Number,1693272
-Population at Each Census,1979,State,Female,Number,1674945
+Population at Each Census,1979,Total,Both sexes,Number,3368217
+Population at Each Census,1979,Total,Male,Number,1693272
+Population at Each Census,1979,Total,Female,Number,1674945
 Population at Each Census,1979,Carlow,Both sexes,Number,38668
 Population at Each Census,1979,Carlow,Male,Number,19743
 Population at Each Census,1979,Carlow,Female,Number,18925
@@ -1376,9 +1376,9 @@ Population at Each Census,1979,Donegal,Female,Number,59312
 Population at Each Census,1979,Monaghan,Both sexes,Number,50376
 Population at Each Census,1979,Monaghan,Male,Number,26245
 Population at Each Census,1979,Monaghan,Female,Number,24131
-Population at Each Census,1981,State,Both sexes,Number,3443405
-Population at Each Census,1981,State,Male,Number,1729354
-Population at Each Census,1981,State,Female,Number,1714051
+Population at Each Census,1981,Total,Both sexes,Number,3443405
+Population at Each Census,1981,Total,Male,Number,1729354
+Population at Each Census,1981,Total,Female,Number,1714051
 Population at Each Census,1981,Carlow,Both sexes,Number,39820
 Population at Each Census,1981,Carlow,Male,Number,20195
 Population at Each Census,1981,Carlow,Female,Number,19625
@@ -1457,9 +1457,9 @@ Population at Each Census,1981,Donegal,Female,Number,61150
 Population at Each Census,1981,Monaghan,Both sexes,Number,51192
 Population at Each Census,1981,Monaghan,Male,Number,26679
 Population at Each Census,1981,Monaghan,Female,Number,24513
-Population at Each Census,1986,State,Both sexes,Number,3540643
-Population at Each Census,1986,State,Male,Number,1769690
-Population at Each Census,1986,State,Female,Number,1770953
+Population at Each Census,1986,Total,Both sexes,Number,3540643
+Population at Each Census,1986,Total,Male,Number,1769690
+Population at Each Census,1986,Total,Female,Number,1770953
 Population at Each Census,1986,Carlow,Both sexes,Number,40988
 Population at Each Census,1986,Carlow,Male,Number,20816
 Population at Each Census,1986,Carlow,Female,Number,20172
@@ -1538,9 +1538,9 @@ Population at Each Census,1986,Donegal,Female,Number,63758
 Population at Each Census,1986,Monaghan,Both sexes,Number,52379
 Population at Each Census,1986,Monaghan,Male,Number,27044
 Population at Each Census,1986,Monaghan,Female,Number,25335
-Population at Each Census,1991,State,Both sexes,Number,3525719
-Population at Each Census,1991,State,Male,Number,1753418
-Population at Each Census,1991,State,Female,Number,1772301
+Population at Each Census,1991,Total,Both sexes,Number,3525719
+Population at Each Census,1991,Total,Male,Number,1753418
+Population at Each Census,1991,Total,Female,Number,1772301
 Population at Each Census,1991,Carlow,Both sexes,Number,40942
 Population at Each Census,1991,Carlow,Male,Number,20785
 Population at Each Census,1991,Carlow,Female,Number,20157
@@ -1619,9 +1619,9 @@ Population at Each Census,1991,Donegal,Female,Number,63300
 Population at Each Census,1991,Monaghan,Both sexes,Number,51293
 Population at Each Census,1991,Monaghan,Male,Number,26212
 Population at Each Census,1991,Monaghan,Female,Number,25081
-Population at Each Census,1996,State,Both sexes,Number,3626087
-Population at Each Census,1996,State,Male,Number,1800232
-Population at Each Census,1996,State,Female,Number,1825855
+Population at Each Census,1996,Total,Both sexes,Number,3626087
+Population at Each Census,1996,Total,Male,Number,1800232
+Population at Each Census,1996,Total,Female,Number,1825855
 Population at Each Census,1996,Carlow,Both sexes,Number,41616
 Population at Each Census,1996,Carlow,Male,Number,21086
 Population at Each Census,1996,Carlow,Female,Number,20530
@@ -1700,9 +1700,9 @@ Population at Each Census,1996,Donegal,Female,Number,64474
 Population at Each Census,1996,Monaghan,Both sexes,Number,51313
 Population at Each Census,1996,Monaghan,Male,Number,26158
 Population at Each Census,1996,Monaghan,Female,Number,25155
-Population at Each Census,2002,State,Both sexes,Number,3917203
-Population at Each Census,2002,State,Male,Number,1946164
-Population at Each Census,2002,State,Female,Number,1971039
+Population at Each Census,2002,Total,Both sexes,Number,3917203
+Population at Each Census,2002,Total,Male,Number,1946164
+Population at Each Census,2002,Total,Female,Number,1971039
 Population at Each Census,2002,Carlow,Both sexes,Number,46014
 Population at Each Census,2002,Carlow,Male,Number,23403
 Population at Each Census,2002,Carlow,Female,Number,22611
@@ -1781,9 +1781,9 @@ Population at Each Census,2002,Donegal,Female,Number,68559
 Population at Each Census,2002,Monaghan,Both sexes,Number,52593
 Population at Each Census,2002,Monaghan,Male,Number,26806
 Population at Each Census,2002,Monaghan,Female,Number,25787
-Population at Each Census,2006,State,Both sexes,Number,4239848
-Population at Each Census,2006,State,Male,Number,2121171
-Population at Each Census,2006,State,Female,Number,2118677
+Population at Each Census,2006,Total,Both sexes,Number,4239848
+Population at Each Census,2006,Total,Male,Number,2121171
+Population at Each Census,2006,Total,Female,Number,2118677
 Population at Each Census,2006,Carlow,Both sexes,Number,50349
 Population at Each Census,2006,Carlow,Male,Number,25611
 Population at Each Census,2006,Carlow,Female,Number,24738
@@ -1862,9 +1862,9 @@ Population at Each Census,2006,Donegal,Female,Number,73294
 Population at Each Census,2006,Monaghan,Both sexes,Number,55997
 Population at Each Census,2006,Monaghan,Male,Number,28583
 Population at Each Census,2006,Monaghan,Female,Number,27414
-Population at Each Census,2011,State,Both sexes,Number,4588252
-Population at Each Census,2011,State,Male,Number,2272699
-Population at Each Census,2011,State,Female,Number,2315553
+Population at Each Census,2011,Total,Both sexes,Number,4588252
+Population at Each Census,2011,Total,Male,Number,2272699
+Population at Each Census,2011,Total,Female,Number,2315553
 Population at Each Census,2011,Carlow,Both sexes,Number,54612
 Population at Each Census,2011,Carlow,Male,Number,27431
 Population at Each Census,2011,Carlow,Female,Number,27181
@@ -1943,9 +1943,9 @@ Population at Each Census,2011,Donegal,Female,Number,80614
 Population at Each Census,2011,Monaghan,Both sexes,Number,60483
 Population at Each Census,2011,Monaghan,Male,Number,30441
 Population at Each Census,2011,Monaghan,Female,Number,30042
-Population at Each Census,2016,State,Both sexes,Number,4761865
-Population at Each Census,2016,State,Male,Number,2354428
-Population at Each Census,2016,State,Female,Number,2407437
+Population at Each Census,2016,Total,Both sexes,Number,4761865
+Population at Each Census,2016,Total,Male,Number,2354428
+Population at Each Census,2016,Total,Female,Number,2407437
 Population at Each Census,2016,Carlow,Both sexes,Number,56932
 Population at Each Census,2016,Carlow,Male,Number,28465
 Population at Each Census,2016,Carlow,Female,Number,28467
@@ -2024,9 +2024,9 @@ Population at Each Census,2016,Donegal,Female,Number,80170
 Population at Each Census,2016,Monaghan,Both sexes,Number,61386
 Population at Each Census,2016,Monaghan,Male,Number,30866
 Population at Each Census,2016,Monaghan,Female,Number,30520
-Population at Each Census,2022,State,Both sexes,Number,5149139
-Population at Each Census,2022,State,Male,Number,2544549
-Population at Each Census,2022,State,Female,Number,2604590
+Population at Each Census,2022,Total,Both sexes,Number,5149139
+Population at Each Census,2022,Total,Male,Number,2544549
+Population at Each Census,2022,Total,Female,Number,2604590
 Population at Each Census,2022,Carlow,Both sexes,Number,61968
 Population at Each Census,2022,Carlow,Male,Number,30822
 Population at Each Census,2022,Carlow,Female,Number,31146
