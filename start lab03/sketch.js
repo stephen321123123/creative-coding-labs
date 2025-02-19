@@ -1,71 +1,59 @@
 let data;
-let cleanedData = [];
-let charts = [];
-// let femaleScores;
-// let ageGroups;
-// let chartHeight = 300;
-// let chartWidth = 300;    //properties of a bar chart
-// let barWidth = 15;
-// let margin = 15;
-// let gap = 300;
-// let scaler;
-// let axisThickness = 1;
-// let chartPosX = 100;
-// let chartPosY = 400;
-// let axisColour;
-// let barColour;
-// let axisTextColour;
- 
-function preload(){
-    data = loadTable('data/Combined.csv', 'csv', 'header')
+let cleanData = [];
+let chartWidth = 800;
+let chartHeight = 800;
+let canvasWidth = 1000;
+let canvasHeight = 1000;
+
+let numBars;
+let barWidth = 25;
+
+//Colours
+let axisColour = "#474747";
+let backgroundColour = "#f7ff7f";  
+let axisThickness = 3; 
+let barColour = "#416096";
+
+function preload() {
+    data = loadTable('/data/Data.csv', 'csv', 'header');
 }
  
 function setup() {
-    createCanvas(1000,1000);
-    angleMode(DEGREES);
-    noLoop();
-    cleanData();
-    charts.push(new BarChart({
-        data:cleanedData,
-        xValue:"Age_Group",
-        yValue:"Female",
-        // chartHeight: 200,            //wrapping values in an object
-        // chartWidth: 200,
-        //barWidth: 10,
-        // margin: 15,
-        // axisThickness: 2,
-        // xPos: 50,
-        // yPos: 450
-}));
-    // charts.push(new BarChart(cleanedData,"Age_Group","Male",200,200,10,15,2,250,450));
-    // charts.push(new BarChart(cleanedData,"Age_Group","Total",150,400,10,15,2,50,200));
+    createCanvas(canvasWidth, canvasHeight);
+
+    for(let i=0;i<data.rows.length;i++){
+        cleanData.push(data.rows[i].obj)  //pushing new obj in
+    }
+
+    numBars = cleanData.length;    //checks the for let loop to see how many objects are in the array and return an even amount of bars
 }
  
 function draw(){
-    background(255);
-    charts.forEach(chart => {
-        chart.renderBars();
-        chart.renderLabels();
-        chart.renderAxis();
-        chart.renderTicks();
-});
-  
-}
+    background(backgroundColour);       //calling the declared variables (2-11)
 
-function cleanData(){
-    for (let i = 0; i < data.rows.length; i++) {
-        cleanedData.push(data.rows[i].obj)
+    transX = (canvasWidth - chartWidth) / 2;
+    transY = (canvasHeight - chartHeight) / 2 + chartHeight;    //line 27-29 - centers the chart on the canvas
+    translate(transX, transY);
+    noFill();
+    stroke(axisColour);
+    strokeWeight(axisThickness);
+    line(0,0,chartWidth,0);             //horizontal line
+    line(0,0,0, -chartHeight,0);        //vertical line
+
+    noStroke();
+    fill(barColour);
+
+    let barGap = (chartWidth - (numBars * barWidth)) / (numBars + 1);   // we add +1 because if i have 5 bars im going to need 6 gaps
+    for(let i=0; i<numBars; i++){
+        let jump = (barGap + (i+1)) + (barWidth * i);
+        let colHeight = cleanData[i].Total
+       rect(jump,0,barWidth,-colHeight/1700);      //this is the bars (-cleandata gives me the total of each obj) (change this for my pyrimid graph)
     }
-
-    for (let i = 0; i < cleanedData.length; i++) {
-        cleanedData[i].Female = parseInt(cleanedData[i].Female)
-        cleanedData[i].Male = parseInt(cleanedData[i].Male)
-        cleanedData[i].Total = parseInt(cleanedData[i].Total)
-    }
+     
+   
+    
+    
 }
- 
-
-
 
 
 
