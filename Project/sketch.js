@@ -15,7 +15,7 @@ let axisThickness = 3;
 let barColour = "#416096";
 
 function preload() {
-    data = loadTable('/data/Data.csv', 'csv', 'header');
+    data = loadTable('./data/Data.csv', 'csv', 'header');
 }
  
 function setup() {
