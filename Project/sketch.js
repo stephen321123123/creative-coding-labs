@@ -1,20 +1,7 @@
 let data;
 let cleanedData = [];
 let charts = [];
-// let femaleScores;
-// let ageGroups;
-// let chartHeight = 300;
-// let chartWidth = 300;    //properties of a bar chart
-// let barWidth = 15;
-// let margin = 15;
-// let gap = 300;
-// let scaler;
-// let axisThickness = 1;
-// let chartPosX = 100;
-// let chartPosY = 400;
-// let axisColour;
-// let barColour;
-// let axisTextColour;
+
  
 function preload(){
     data = loadTable('./data/Data.csv', 'csv', 'header')
@@ -33,13 +20,12 @@ function setup() {
         yValue:"Total",
         chartHeight: 200,            //barchart is givin me total population of each county
         chartWidth: 350,
-        barWidth: 10,
+        barWidth: 15,
         margin: 15,
         axisThickness: 2,
         xPos: 50,
         yPos: 250
 }));
-
 
     // StackedBarChart of male/ female population
     charts.push(new StackedBarChart({
@@ -48,13 +34,26 @@ function setup() {
         yValues: ["Male", "Female"],   
         chartHeight: 200,
         chartWidth: 350,
-        barWidth: 10,
+        barWidth: 15,
         margin: 15,
         axisThickness: 2,
         xPos: 475,  
         yPos: 250 
     }));
 
+      // StackedBarChart of male/ female population
+      charts.push(new HorizontalBarChart({
+        data: cleanedData,
+        xValue: "County",  
+        yValues: ["Male", "Female"],   
+        chartHeight: 200,
+        chartWidth: 350,
+        barWidth: 15,
+        margin: 15,
+        axisThickness: 2,
+        xPos: 50,  
+        yPos: 500 
+    }));
 }
  
 function draw(){
@@ -64,9 +63,8 @@ function draw(){
         chart.renderLabels();
         chart.renderAxis();
         chart.renderTicks();
-       
+     
 });
-  
 }
 
 function cleanData(){

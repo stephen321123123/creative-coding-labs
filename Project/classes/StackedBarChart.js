@@ -16,13 +16,45 @@ class StackedBarChart {
         this.axisColour = color(255, 100, 100);
         this.axisTickColour = color(155, 100, 100);
         this.barColour = color(255);
-        this.axisTextColour = color(255);
+        this.axisTextColour = color(255,0,0);
         this.numTicks = 5;
         this.tickLength = 10;
     }
 
-  
+    // renderBars() {
+    //     push();
+    //     translate(this.chartPosX, this.chartPosY);
+    //     noFill();
+    //     stroke(200, 0, 0);
+    //     strokeWeight(this.axisThickness);
+    //     line(0, 0, 0, -this.chartHeight); // vertical axis
+    //     line(0, 0, this.chartWidth, 0); // horizontal axis
 
+    //     push();
+    //     translate(this.margin, 0)
+    //     for (let i = 0; i < this.data.length; i++) {
+    //         let xPos = (this.barWidth + this.gap) * i;
+    //         let stackedHeight = 0;
+
+    //         // Stack bars for Male and Female
+    //         for (let j = 0; j < this.yValues.length; j++) {        // j is called instead of i because j gets the jth category(male/female) from the ith county
+    //             let barHeight = this.data[i][this.yValues[j]] * this.scaler;
+    //             fill(j == 0 ? color(25, 205, 0) : color(255, 0, 0));  
+    //             noStroke();
+    //             rect(xPos, -stackedHeight, this.barWidth, barHeight);
+    //             stackedHeight += barHeight;  // Update stacked height for next segment
+    //         }
+
+    //         // Draw the label at the bottom of the bar
+    //         push();
+    //         translate(xPos + (this.barWidth / 2), 10);
+    //         rotate(45);
+    //         text(this.data[i][this.xValue], 0, 0);
+    //         pop();
+    //     }
+    //     pop();
+    //     pop();
+    // }
 
 
 
@@ -87,7 +119,19 @@ class StackedBarChart {
         pop();
     }
 
-    
+    renderTicks() {
+        push();
+        translate(this.chartPosX, this.chartPosY);
+        noFill();
+        stroke(200, 0, 0);
+        strokeWeight(this.axisThickness);
+        let tickIncrement = this.chartHeight / 5;
+        for (let i = 0; i <= this.numTicks; i++) {
+            line(0, -tickIncrement * i, -this.tickLength, -tickIncrement * i);
+        }
+        pop();
+    }
+
     renderLabels() {
         push();
         translate(this.chartPosX, this.chartPosY);
@@ -106,23 +150,11 @@ class StackedBarChart {
             rotate(45);
             text(this.data[i][this.xValue], 0, 0);
             pop();
+
+           
         }
         pop();
         pop();
     }
-
-    renderTicks() {
-        push();
-        translate(this.chartPosX, this.chartPosY);
-        noFill();
-        stroke(200, 0, 0);
-        strokeWeight(this.axisThickness);
-        let tickIncrement = this.chartHeight / 5;
-        for (let i = 0; i <= this.numTicks; i++) {
-            line(0, -tickIncrement * i, -this.tickLength, -tickIncrement * i);
-        }
-        pop();
-    }
-
 
 }
