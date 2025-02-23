@@ -70,7 +70,7 @@ class HorizontalChart {
             textAlign(LEFT, CENTER);
             textSize(12);
             push();
-            translate(this.data[i][this.yValue] * this.scaler + 10, yPos + this.barWidth / 2);
+            translate(this.data[i][this.yValue] * this.scaler - 10, yPos + this.barWidth / 2);
             text(this.data[i][this.xValue], 0, 0);
             pop();
         }
