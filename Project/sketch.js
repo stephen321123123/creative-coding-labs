@@ -8,7 +8,7 @@ function preload(){
 }
  
 function setup() {
-    createCanvas(1000,1000);
+    createCanvas(1200,1200);
     angleMode(DEGREES);
     noLoop();
     cleanData();
@@ -27,11 +27,25 @@ function setup() {
         yPos: 250
 }));
 
+// StackedBarChart of male/ female population
+charts.push(new HorizontalChart({
+    data: cleanedData,
+    xValue: "County",  
+    yValue: "Total",   
+    chartHeight: 200,
+    chartWidth: 350,
+    barWidth: 15,
+    margin: 15,
+    axisThickness: 2,
+    xPos: 50,  
+    yPos: 450 
+}));
+
     // StackedBarChart of male/ female population
     charts.push(new StackedBarChart({
         data: cleanedData,
         xValue: "County",  
-        yValues: ["Male", "Female"],   
+        yValue: ["Male", "Female"],   
         chartHeight: 200,
         chartWidth: 350,
         barWidth: 15,
@@ -41,19 +55,9 @@ function setup() {
         yPos: 250 
     }));
 
-      // StackedBarChart of male/ female population
-      charts.push(new HorizontalBarChart({
-        data: cleanedData,
-        xValue: "County",  
-        yValues: ["Male", "Female"],   
-        chartHeight: 200,
-        chartWidth: 350,
-        barWidth: 15,
-        margin: 15,
-        axisThickness: 2,
-        xPos: 50,  
-        yPos: 500 
-    }));
+
+
+      
 }
  
 function draw(){
@@ -63,6 +67,7 @@ function draw(){
         chart.renderLabels();
         chart.renderAxis();
         chart.renderTicks();
+        
      
 });
 }

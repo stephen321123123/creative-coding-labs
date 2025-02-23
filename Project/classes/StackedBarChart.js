@@ -2,12 +2,12 @@ class StackedBarChart {
     constructor(obj) {
         this.data = obj.data;
         this.xValue = obj.xValue;
-        this.yValues = obj.yValues;   // An array of values to stack (e.g., ['Male', 'Female'])
+        this.yValue = obj.yValue;   // An array of values to stack (e.g., ['Male', 'Female'])
         this.chartHeight = obj.chartHeight || 300;
         this.chartWidth = obj.chartWidth || 300;
         this.barWidth = obj.barWidth || 10;
         this.margin = obj.margin || 10;
-        this.scaler = this.chartHeight / (max(this.data.map(row => row[this.yValues[0]] + row[this.yValues[1]])));
+        this.scaler = this.chartHeight / (max(this.data.map(row => row[this.yValue[0]] + row[this.yValue[1]])));
         this.gap = (this.chartWidth - (this.data.length * this.barWidth) - (this.margin * 2)) / (this.data.length - 1);
         this.axisThickness = obj.axisThickness || 1;
         this.chartPosX = obj.xPos || 50;
@@ -21,41 +21,7 @@ class StackedBarChart {
         this.tickLength = 10;
     }
 
-    // renderBars() {
-    //     push();
-    //     translate(this.chartPosX, this.chartPosY);
-    //     noFill();
-    //     stroke(200, 0, 0);
-    //     strokeWeight(this.axisThickness);
-    //     line(0, 0, 0, -this.chartHeight); // vertical axis
-    //     line(0, 0, this.chartWidth, 0); // horizontal axis
-
-    //     push();
-    //     translate(this.margin, 0)
-    //     for (let i = 0; i < this.data.length; i++) {
-    //         let xPos = (this.barWidth + this.gap) * i;
-    //         let stackedHeight = 0;
-
-    //         // Stack bars for Male and Female
-    //         for (let j = 0; j < this.yValues.length; j++) {        // j is called instead of i because j gets the jth category(male/female) from the ith county
-    //             let barHeight = this.data[i][this.yValues[j]] * this.scaler;
-    //             fill(j == 0 ? color(25, 205, 0) : color(255, 0, 0));  
-    //             noStroke();
-    //             rect(xPos, -stackedHeight, this.barWidth, barHeight);
-    //             stackedHeight += barHeight;  // Update stacked height for next segment
-    //         }
-
-    //         // Draw the label at the bottom of the bar
-    //         push();
-    //         translate(xPos + (this.barWidth / 2), 10);
-    //         rotate(45);
-    //         text(this.data[i][this.xValue], 0, 0);
-    //         pop();
-    //     }
-    //     pop();
-    //     pop();
-    // }
-
+  
 
 
     renderBars() {
@@ -77,8 +43,8 @@ class StackedBarChart {
             let stackedHeight = 0;  // Start stacking from 0 (x-axis)
     
             // Loop through each segment (Male, Female)
-            for (let j = 0; j < this.yValues.length; j++) {
-                let barHeight = this.data[i][this.yValues[j]] * this.scaler;
+            for (let j = 0; j < this.yValue.length; j++) {
+                let barHeight = this.data[i][this.yValue[j]] * this.scaler;
     
                 // Ensure the bar starts at y=0 (x-axis)
                 fill(j == 0 ? color(25, 205, 0) : color(255, 0, 0));  // Different colors for Male and Female
