@@ -18,46 +18,37 @@ function setup() {
         data:cleanedData,
         xValue:"County",
         yValue:"Total",
-        chartHeight: 200,            //barchart is givin me total population of each county
-        chartWidth: 350,
-        barWidth: 15,
-        margin: 15,
-        axisThickness: 2,
-        xPos: 50,
-        yPos: 250
-}));
+    }));
 
-// StackedBarChart of male/ female population
+// Horizontal total population
 charts.push(new HorizontalChart({
     data: cleanedData,
     xValue: "County",  
     yValue: "Total",   
-    chartHeight: 200,
-    chartWidth: 350,
-    barWidth: 15,
-    margin: 15,
-    axisThickness: 2,
-    xPos: 50,  
-    yPos: 450 
-}));
+   
+    }));
 
     // StackedBarChart of male/ female population
     charts.push(new StackedBarChart({
         data: cleanedData,
         xValue: "County",  
-        yValue: ["Male", "Female"],   
-        chartHeight: 200,
-        chartWidth: 350,
-        barWidth: 15,
-        margin: 15,
-        axisThickness: 2,
-        xPos: 475,  
-        yPos: 250 
+        yValue: ["Male", "Female"] 
     }));
 
+    // second barchart of male/ female population
+    charts.push(new SecondBarChart({
+        data: cleanedData,
+        xValue: "County",  
+        yValue: ["Male", "Female"]
+       
+    }));
 
-
-      
+    // pyramid chart of male/ female population
+    charts.push(new PyramidChart({
+        data: cleanedData,
+        xValue: "County",  
+        yValue: ["Male", "Female"],   
+    }));
 }
  
 function draw(){
@@ -67,8 +58,6 @@ function draw(){
         chart.renderLabels();
         chart.renderAxis();
         chart.renderTicks();
-        
-     
 });
 }
 

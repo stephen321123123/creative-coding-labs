@@ -3,15 +3,15 @@ class HorizontalChart {
         this.data = obj.data;
         this.xValue = obj.xValue;
         this.yValue = obj.yValue;
-        this.chartHeight = obj.chartHeight || 300;
+        this.chartHeight = obj.chartHeight || 200;
         this.chartWidth = obj.chartWidth || 300;
-        this.barWidth = obj.barWidth || 10;
-        this.margin = obj.margin || 10;
+        this.barWidth = obj.barWidth || 15;
+        this.margin = obj.margin || 15;
  
-        this.axisThickness = obj.axisThickness || 1;
+        this.axisThickness = obj.axisThickness || 2;
         this.chartPosX = obj.chartPosX || 50;
         this.chartPosY = obj.chartPosY || 550;
- 
+               
         this.gap = (this.chartHeight - (this.data.length * this.barWidth) - (this.margin * 2)) / (this.data.length - 1);
         this.scaler = this.chartWidth / (max(cleanedData.map(row => row[this.yValue])));
  

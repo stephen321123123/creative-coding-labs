@@ -1,17 +1,17 @@
 class BarChart {
-    constructor(obj){
-        this.data = obj.data;
+    constructor(obj){              //initializes properties for the chart
+        this.data = obj.data;      //holds data passed through obj
         this.xValue = obj.xValue;
         this.yValue = obj.yValue;
-        this.chartHeight = obj.chartHeight || 300;
+        this.chartHeight = obj.chartHeight || 200;
         this.chartWidth = obj.chartWidth || 300;
         this.barWidth = obj.barWidth || 10;
         this.margin = obj.margin || 10;
-        this.scaler = this.chartHeight / (max(this.data.map(row => row[this.yValue])));
+        this.scaler = this.chartHeight / (max(this.data.map(row => row[this.yValue]))); //largest value in this.yValue = max height of the chart
         this.gap = (this.chartWidth - (this.data.length * this.barWidth) - (this.margin * 2)) / (this.data.length - 1);
-        this.axisThickness = obj.axisThickness || 1;
+        this.axisThickness = obj.axisThickness || 2;
         this.chartPosX = obj.xPos || 50;
-        this.chartPosY = obj.yPos || 350;
+        this.chartPosY = obj.yPos || 250;
         
         this.axisColour = color(255, 100, 100);
         this.axisTickColour = color(155, 100, 100);
@@ -21,34 +21,32 @@ class BarChart {
         this.tickLength = 10;
     }
 
-    renderBars() {
-        push();
-        translate(this.chartPosX, this.chartPosY);
+    //methods
+    renderBars() {     //function that draws the bars and labels for the chart
+        push();         //saves the drawing state
+        translate(this.chartPosX, this.chartPosY); //starting xpos and ypos from sketch.js
         noFill();
-        stroke(200, 0, 0);
-        strokeWeight(this.axisThickness);
-        line(0, 0, 0, -this.chartHeight); // vertical axis
-        line(0, 0, this.chartWidth, 0); // horizontal axis
+        noStroke();
+        push();     //saves the drawing state again
 
-        push();
         translate(this.margin, 0)
-        for (let i = 0; i < this.data.length; i++) {
-            let xPos = (this.barWidth + this.gap) * i;
+        for (let i = 0; i < this.data.length; i++) {     //iterates through the array to render eachbar
+            let xPos = (this.barWidth + this.gap) * i; //calculates the horizontal pos of each bar
             fill(color(25, 205, 0)); // bar color
-            noStroke();
-            rect(xPos, 0, this.barWidth, -this.data[i][this.yValue] * this.scaler);
+            stroke(0,0,0);         
+            rect(xPos, 0, this.barWidth, -this.data[i][this.yValue] * this.scaler);  //draws each bar at xpos, width = this.barWidth and a height from the scaler
 
             push();
-            translate(xPos + (this.barWidth / 2), 10);
+            translate(xPos + (this.barWidth / 2), 10);  //moves the text to needed location
             rotate(45);
-            text(this.data[i][this.xValue], 0, 0);
+            text(this.data[i][this.xValue], 0, 0);      // draws the label using this.xValue
             pop();
         }
         pop();
         pop();
     }
 
-    renderAxis() {
+    renderAxis() { 
         push();
         translate(this.chartPosX, this.chartPosY);
         noFill();
