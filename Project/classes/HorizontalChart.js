@@ -35,6 +35,7 @@ class HorizontalChart {
       
  
         push();
+        translate(this.gap, -5);
         for (let i = 0; i < this.data.length; i++) {
             let yPos = (this.barWidth + -this.gap) * i;
             fill(this.barColour);
@@ -58,26 +59,7 @@ class HorizontalChart {
         pop();
     }
  
-    renderLabels() {
-        push();
-        translate(this.chartPosX, this.chartPosY);
-        push();
-        translate(this.margin, 0);
-        for (let i = 0; i < this.data.length; i++) {
-            let yPos = (this.barWidth + -this.gap) * i;
- 
-            fill(this.axisTextColour);
-            noStroke();
-            textAlign(LEFT, CENTER);
-            textSize(12);
-            push();
-            translate(this.data[i][this.yValue] * this.scaler - 10, -yPos + -this.barWidth / 2);
-            text(this.data[i][this.xValue], 0, 0);
-            pop();
-        }
-        pop();
-        pop();
-    }
+    
 
   
  
@@ -98,9 +80,28 @@ class HorizontalChart {
             let x = tickIncrement * i;
             line(x, 0, x, this.tickLength);
         }
-        
+        pop();
+    }
+
+
+ renderLabels() {
+        push();
+        translate(this.chartPosX, this.chartPosY);
+        push();
+        translate(this.margin, 0);
+        for (let i = 0; i < this.data.length; i++) {
+            let yPos = (this.barWidth + -this.gap) * i;
  
+            fill(this.axisTextColour);
+            noStroke();
+            textAlign(LEFT, CENTER);
+            textSize(12);
+            push();
+            translate(this.data[i][this.yValue] * this.scaler - 10, -yPos + -this.barWidth);
+            text(this.data[i][this.xValue], 0, 0);
+            pop();
+        }
+        pop();
         pop();
     }
 }
- 

@@ -66,7 +66,9 @@ class BarChart {
         let tickIncrement = this.chartHeight / 5;
         for (let i = 0; i <= this.numTicks; i++) {
             line(0, -tickIncrement * i, -this.tickLength, -tickIncrement * i);
+            
         }
+        
         pop();
     }
 

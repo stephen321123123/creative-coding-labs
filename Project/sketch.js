@@ -49,8 +49,6 @@ charts.push(new HorizontalChart({
         xValue: "County",  
         yValue: ["Male", "Female"],   
     }));
-
-
 }
  
 function draw(){
