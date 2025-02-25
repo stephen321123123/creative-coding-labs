@@ -7,12 +7,12 @@ class PyramidChart {
         this.chartWidth = obj.chartWidth || 300;
         this.barHeight = obj.barHeight || 20;
         this.barWidth = obj.barWidth || 10;
-        this.margin = obj.margin || 40;
+        this.margin = obj.margin || 10;
         this.scaler = this.chartWidth / (max(this.data.map(row => row[this.yValue[0]] + row[this.yValue[1]])));
         this.gap = (this.chartHeight - (this.data.length * this.barHeight) - (this.margin * 2)) / (this.data.length - 1);
         this.axisThickness = obj.axisThickness || 2;
-        this.chartPosX = obj.xPos || 500;
-        this.chartPosY = obj.yPos || 650;
+        this.chartPosX = obj.xPos || 750;
+        this.chartPosY = obj.yPos || 550;
 
         this.axisColour = color(255, 100, 100);
         this.axisTickColour = color(155, 100, 100);
@@ -27,11 +27,6 @@ class PyramidChart {
         push();
         translate(this.chartPosX, this.chartPosY); // Move to chart position
         
-        noFill();
-        stroke(200, 0, 0);
-        strokeWeight(this.axisThickness);
-        line(0, 0, 0, -this.chartHeight); // Vertical axis
-        line(0, 0, this.chartWidth, 0);   // Horizontal axis
     
         push();
         translate(this.margin, 0); // Apply margin for x-axis
@@ -47,7 +42,7 @@ class PyramidChart {
     
                 // Ensure the bar starts from the center
                 fill(j == 0 ? color(this.femaleBarColour) : color(this.maleBarColour));  // Different colors for Male and Female
-                noStroke();
+                stroke(0,255,0);
                 
                 // Draw the stacked bar segment (extend symmetrically from the center)
                 let leftPos = stackedWidth - barWidth ; // Calculate position for the pyramid effect
@@ -55,7 +50,7 @@ class PyramidChart {
                 stackedWidth += barWidth;  // Update stacked width for the next segment
             }
     
-            // Draw the label at the bottom of the bar
+            // Draw the label at the side of the bars
             push();
             translate(0, -yPos + this.barWidth / 2);
             text(this.data[i][this.xValue], 0, 0);  // County name
@@ -72,7 +67,7 @@ class PyramidChart {
         stroke(200, 0, 0);
         strokeWeight(this.axisThickness);
         line(0, 0, 0, -this.chartHeight); // vertical axis
-        line(0, 0, this.chartWidth, 0); // horizontal axis
+        line(0, 0, -this.chartWidth, 0); // horizontal axis
         pop();
     }
 
@@ -84,7 +79,7 @@ class PyramidChart {
         strokeWeight(this.axisThickness);
         let tickIncrement = this.chartHeight / 5;
         for (let i = 0; i <= this.numTicks; i++) {
-            line(0, -tickIncrement * i, -this.tickLength, -tickIncrement * i);
+            line(0, -tickIncrement * i, this.tickLength, -tickIncrement * i);
         }
         pop();
     }
