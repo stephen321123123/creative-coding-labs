@@ -8,7 +8,7 @@ function preload(){
 }
  
 function setup() {
-    createCanvas(1200,1200);
+    createCanvas(2000,2000);
     angleMode(DEGREES);
     noLoop();
     cleanData();
@@ -49,6 +49,13 @@ charts.push(new HorizontalChart({
         xValue: "County",  
         yValue: ["Male", "Female"]   
     }));
+
+     // pyramid chart of male/ female population
+     charts.push(new LineChart({
+        data: cleanedData,
+        xValue: "County",  
+        yValue: "Male",
+    }));
 }
  
 function draw(){
@@ -58,6 +65,7 @@ function draw(){
        chart.renderLabels();
        chart.renderAxis();
     chart.renderTicks();
+    chart.renderTitle();
      
 });
 }

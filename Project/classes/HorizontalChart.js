@@ -9,8 +9,8 @@ class HorizontalChart {
         this.margin = obj.margin || 15;
  
         this.axisThickness = obj.axisThickness || 2;
-        this.chartPosX = obj.chartPosX || 50;
-        this.chartPosY = obj.chartPosY || 750;
+        this.chartPosX = obj.chartPosX || 200;
+        this.chartPosY = obj.chartPosY || 1700;
                
         this.gap = (this.chartHeight - (this.data.length * this.barWidth) - (this.margin * 2)) / (this.data.length - 1);
         this.scaler = this.chartWidth / (max(cleanedData.map(row => row[this.yValue])));
@@ -22,14 +22,15 @@ class HorizontalChart {
         this.strokeColour = color(255 ,255, 255);
         this.numTicks = 5;
         this.tickLength = 10;
+        this.chartTitle = obj.chartTitle || "Horizontal Chart";
     }
  
     renderBars() {
         push();
         translate(this.chartPosX, this.chartPosY);
         noFill();
-        noStroke();
-        strokeWeight(this.axisThickness);
+        // noStroke();
+        // strokeWeight(this.axisThickness);
  
       
  
@@ -101,6 +102,16 @@ class HorizontalChart {
             pop();
         }
         pop();
+        pop();
+    }
+
+    renderTitle(){
+        push();
+        translate(this.chartPosX, this.chartPosY - this.chartHeight - 30);
+        fill(this.axisTextColour);
+        textSize(20);
+        textAlign(CENTER,CENTER);
+        text(this.chartTitle, 250, 0);
         pop();
     }
 }

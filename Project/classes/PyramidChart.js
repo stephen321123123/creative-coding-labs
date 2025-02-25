@@ -11,8 +11,8 @@ class PyramidChart {
         this.scaler = this.chartWidth / (max(this.data.map(row => row[this.yValue[0]] + row[this.yValue[1]])));
         this.gap = (this.chartHeight - (this.data.length * this.barHeight) - (this.margin * 2)) / (this.data.length - 1);
         this.axisThickness = obj.axisThickness || 2;
-        this.chartPosX = obj.xPos || 600;
-        this.chartPosY = obj.yPos || 900;
+        this.chartPosX = obj.xPos || 1000;
+        this.chartPosY = obj.yPos || 1700;
         this.stackedWidth = obj.stackedWidth || 150;
 
         this.axisColour = color(255, 100, 100);
@@ -22,6 +22,7 @@ class PyramidChart {
         this.axisTextColour = color(255, 0, 0);
         this.numTicks = 10;
         this.tickLength = 10;
+        this.chartTitle = obj.chartTitle || "Pyramid Chart";
     }
 
     renderBars() {
@@ -109,6 +110,16 @@ class PyramidChart {
             pop();
         }
         pop();
+        pop();
+    }
+
+    renderTitle(){
+        push();
+        translate(this.chartPosX, this.chartPosY - this.chartHeight - 30);
+        fill(this.axisTextColour);
+        textSize(20);
+        textAlign(CENTER,CENTER);
+        text(this.chartTitle, 250, 0);
         pop();
     }
 }

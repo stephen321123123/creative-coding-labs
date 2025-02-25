@@ -3,22 +3,23 @@ class BarChart {
         this.data = obj.data;      //holds data passed through obj
         this.xValue = obj.xValue;
         this.yValue = obj.yValue;
-        this.chartHeight = obj.chartHeight || 200;
-        this.chartWidth = obj.chartWidth || 300;
+        this.chartHeight = obj.chartHeight || 400;
+        this.chartWidth = obj.chartWidth || 400;
         this.barWidth = obj.barWidth || 20;
         this.margin = obj.margin || 10;
         this.scaler = this.chartHeight / (max(this.data.map(row => row[this.yValue]))); //largest value in this.yValue = max height of the chart
         this.gap = (this.chartWidth - (this.data.length * this.barWidth) - (this.margin * 2)) / (this.data.length - 1);
         this.axisThickness = obj.axisThickness || 2;
-        this.chartPosX = obj.xPos || 100;
-        this.chartPosY = obj.yPos || 250;
+        this.chartPosX = obj.xPos || 200;
+        this.chartPosY = obj.yPos || 500;
         
         this.axisColour = color(100);
         this.axisTickColour = color(100,100);
-        this.barColour = color(55,100);
+        this.barColour = color(157,155,189);
         this.axisTextColour = color(100);
         this.numTicks = 5;
         this.tickLength = 10;
+        this.chartTitle = obj.chartTitle || "Bar Chart"
     }
 
     //methods
@@ -32,7 +33,7 @@ class BarChart {
         for (let i = 0; i < this.data.length; i++) {     //iterates through the array to render eachbar
             let xPos = (this.barWidth + this.gap) * i; //calculates the horizontal pos of each bar
             fill(this.barColour ); // bar color
-           noStroke()     
+           stroke(100,100,100)     
             rect(xPos, 0, this.barWidth, -this.data[i][this.yValue] * this.scaler);  //draws each bar at xpos, width = this.barWidth and a height from the scaler
 
             
@@ -115,6 +116,16 @@ class BarChart {
             pop();
         }
         pop();
+        pop();
+    }
+
+    renderTitle(){
+        push();
+        translate(this.chartPosX, this.chartPosY - this.chartHeight - 30);
+        fill(this.axisTextColour);
+        textSize(20);
+        textAlign(CENTER,CENTER);
+        text(this.chartTitle, 250, 0);
         pop();
     }
 }

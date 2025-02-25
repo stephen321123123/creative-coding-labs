@@ -4,23 +4,25 @@ class SecondBarChart {
         this.xValue = obj.xValue;
         this.yValue = obj.yValue;
         this.zValue = obj.zValue;
-        this.chartHeight = obj.chartHeight || 200;
-        this.chartWidth = obj.chartWidth || 300;
+        this.chartHeight = obj.chartHeight || 400;
+        this.chartWidth = obj.chartWidth || 400;
         this.barWidth = obj.barWidth || 10;
         this.margin = obj.margin || 10;
         this.scaler = this.chartHeight / (max(this.data.map(row => row[this.yValue]))); //largest value in this.yValue = max height of the chart
         this.gap = (this.chartWidth - (this.data.length * this.barWidth) - (this.margin * 2)) / (this.data.length - 1);
         this.axisThickness = obj.axisThickness || 2;
-        this.chartPosX = obj.xPos || 600;
-        this.chartPosY = obj.yPos || 600;
+        this.chartPosX = obj.xPos || 1000;
+        this.chartPosY = obj.yPos || 1200;
         this.chartPosZ = obj.ZPos || 455;
         
         this.axisColour = color(255, 100, 100);
         this.axisTickColour = color(155, 100, 100);
-        this.femaleBarColour = color(255,0,0);
-        this.axisTextColour = color(255);
+        this.femaleBarColour = color(132,130,193);
+        this.maleBarColour = color(40,38,114);
+        this.axisTextColour = color(100, 100, 100);
         this.numTicks = 5;
         this.tickLength = 10;
+        this.chartTitle = obj.chartTitle || "Clustered Bar Chart";
     }
 
     //methods
@@ -38,11 +40,7 @@ class SecondBarChart {
             stroke(0,0,0);         
             rect(xPos, 0, this.barWidth, -this.data[i][this.yValue] * this.scaler);  //draws each bar at xpos, width = this.barWidth and a height from the scaler
 
-            push();
-            translate(xPos + (this.barWidth / 2), 10);  //moves the text to needed location
-            rotate(45);
-            text(this.data[i][this.xValue], 0, 0);      // draws the label using this.xValue
-            pop();
+           
         }
         pop();
 
@@ -51,7 +49,7 @@ class SecondBarChart {
         translate(this.margin, 0)
         for (let i = 0; i < this.data.length; i++) {  //iterates through the array to render eachbar
             let xPos = (this.barWidth + this.gap) * i; //calculates the horizontal pos of each bar
-            fill(color(25, 205, 0)); // bar color
+            fill(color(this.maleBarColour)); // bar color
             stroke(0,0,0);         
             rect(xPos, 0, -this.barWidth, -this.data[i][this.zValue] * this.scaler);  //draws each bar at xpos, width = this.barWidth and a height from the scaler
 
@@ -109,10 +107,10 @@ class SecondBarChart {
         translate(this.margin, 0)
         for (let i = 0; i < this.data.length; i++) {
             let xPos = (this.barWidth + this.gap) * i;
-            noFill();
+            fill(this.axisTextColour);
             noStroke();
             textAlign(LEFT, CENTER);
-            textSize(6);
+            textSize(10);
 
             push();
             translate(xPos + (this.barWidth / 2), 10);
@@ -121,6 +119,16 @@ class SecondBarChart {
             pop();
         }
         pop();
+        pop();
+    }
+
+    renderTitle(){
+        push();
+        translate(this.chartPosX, this.chartPosY - this.chartHeight - 30);
+        fill(this.axisTextColour);
+        textSize(20);
+        textAlign(CENTER,CENTER);
+        text(this.chartTitle, 250, 0);
         pop();
     }
 }
