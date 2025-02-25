@@ -1,28 +1,25 @@
 let data;
 let cleanedData = [];
-let cleanedData2 = [];
+let cleanedData2 = [];    //initializing variables
 let charts = [];
 
- 
 function preload(){
     data = loadTable('./data/Data.csv', 'csv', 'header');
-    data2 = loadTable('./data/Data01.csv', 'csv', 'header');
+    data2 = loadTable('./data/Data01.csv', 'csv', 'header');    //loads csv file
 }
  
 function setup() {
-    createCanvas(2000,2000);
+    createCanvas(2000,2000);      //initializes the canvas for visualisation and creates charts based on the unproccessed data
     angleMode(DEGREES);
     noLoop();
     cleanData();
-
-    //barchart for total population 
-    charts.push(new BarChart({
+ 
+charts.push(new BarChart({
         data:cleanedData,
         xValue:"County",
         yValue:"Total",
     }));
 
-// Horizontal total population
 charts.push(new HorizontalChart({
     data: cleanedData,
     xValue: "County",  
@@ -30,14 +27,12 @@ charts.push(new HorizontalChart({
    
     }));
 
-    // StackedBarChart of male/ female population
     charts.push(new StackedBarChart({
         data: cleanedData,
         xValue: "County",  
         yValue: ["Male", "Female"] 
     }));
 
-    // second barchart of male/ female population
     charts.push(new ClusteredBarChart({
         data: cleanedData,
         xValue: "County",  
@@ -45,22 +40,20 @@ charts.push(new HorizontalChart({
         zValue: "Male"
     }));
 
-    // pyramid chart of male/ female population
     charts.push(new PyramidChart({
         data: cleanedData,
         xValue: "County",  
         yValue: ["Male", "Female"]   
     }));
 
-     // pyramid chart of male/ female population
      charts.push(new LineChart({
-        data2: cleanedData,
+        data: cleanedData,
         xValue: "County",  
         yValue: "Male",
     }));
 }
  
-function draw(){
+function draw(){   //p5 sketch renders charts onto canvas
     background(200);
     charts.forEach(chart => {
         chart.renderBars();
@@ -73,7 +66,7 @@ function draw(){
 }
 
 function cleanData(){
-    for (let i = 0; i < data.rows.length; i++) {
+    for (let i = 0; i < data.rows.length; i++) {       //used to proccess the raw data loaded from csv
         cleanedData.push(data.rows[i].obj)
     }
     for (let i = 0; i < data.rows.length; i++) {
@@ -91,55 +84,3 @@ function cleanData(){
         cleanedData2[i].Total = parseInt(cleanedData2[i].Total)
     }
 }
- 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-//  class Friend {
-//     constructor(){                                //step1 
-//         this.name = "Stephen";
-//         this.number = 239;
-//     }
-// }
-
-// class Friend {
-//     constructor(_name, _number){                     //step2 class with variables that are passed by parameters
-//         this.name = _name;
-//         this.number = _number;
-//     }
-
-//     report(){
-//         console.log(this.name, this.number)
-//     }
-// }
-
-// let friends = [];
-// friends.push(new Friend("Dave", 289));
-// friends.push(new Friend("Roger", 139));
-
-// console.log(friends)   
-
-
-
-
-
- 

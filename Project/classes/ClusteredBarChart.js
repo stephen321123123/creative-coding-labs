@@ -1,9 +1,11 @@
 class ClusteredBarChart {
     constructor(obj){              //initializes properties for the chart
+        //data values
         this.data = obj.data;      //holds data passed through obj
         this.xValue = obj.xValue;
         this.yValue = obj.yValue;
         this.zValue = obj.zValue;
+        //chart settings
         this.chartHeight = obj.chartHeight || 400;
         this.chartWidth = obj.chartWidth || 400;
         this.barWidth = obj.barWidth || 10;
@@ -14,13 +16,14 @@ class ClusteredBarChart {
         this.chartPosX = obj.xPos || 1000;
         this.chartPosY = obj.yPos || 1200;
         this.chartPosZ = obj.ZPos || 455;
-        
+        //colours
         this.axisColour = color(255, 100, 100);
         this.axisTickColour = color(155, 100, 100);
         this.femaleBarColour = color(132,130,193);
         this.maleBarColour = color(40,38,114);
         this.axisTextColour = color(100, 100, 100);
         this.headingTextColour = color(0);
+        //ticks and titles
         this.numTicks = 5;
         this.tickLength = 10;
         this.chartTitle = obj.chartTitle || "Clustered Bar Chart";
@@ -28,7 +31,7 @@ class ClusteredBarChart {
         this.chartTitleX = obj.chartTitleX || "County";
     }
 
-    //methods
+    
     renderBars() {     //function that draws the bars and labels for the chart
         push();         //saves the drawing state
         translate(this.chartPosX, this.chartPosY); //starting xpos and ypos from sketch.js
@@ -42,27 +45,20 @@ class ClusteredBarChart {
             fill(color(this.femaleBarColour)); // bar color
             stroke(0,0,0);         
             rect(xPos, 0, this.barWidth, -this.data[i][this.yValue] * this.scaler);  //draws each bar at xpos, width = this.barWidth and a height from the scaler
-
-           
         }
         pop();
 
         push();     //saves the drawing state again
-
         translate(this.margin, 0)
         for (let i = 0; i < this.data.length; i++) {  //iterates through the array to render eachbar
             let xPos = (this.barWidth + this.gap) * i; //calculates the horizontal pos of each bar
             fill(color(this.maleBarColour)); // bar color
             stroke(0,0,0);         
             rect(xPos, 0, -this.barWidth, -this.data[i][this.zValue] * this.scaler);  //draws each bar at xpos, width = this.barWidth and a height from the scaler
-
-           
         }
         pop();
         pop();
     }
-
-  
 
     renderAxis() { 
         push();
@@ -76,7 +72,6 @@ class ClusteredBarChart {
     }
 
     renderTicks() {
-       
         push();
         translate(this.chartPosX, this.chartPosY);
         noFill();
@@ -85,8 +80,6 @@ class ClusteredBarChart {
  
         let tickIncrement = this.chartHeight / this.numTicks;
         let tickValueIncrement = max(this.data.map(d => d[this.yValue])) / this.numTicks;
- 
-        
  
         for (let i = 0; i <= this.numTicks; i++) {
             let y = -tickIncrement * i;
@@ -114,7 +107,6 @@ class ClusteredBarChart {
             noStroke();
             textAlign(LEFT, CENTER);
             textSize(10);
-
             push();
             translate(xPos + (this.barWidth / 2), 10);
             rotate(45);
@@ -128,7 +120,7 @@ class ClusteredBarChart {
     renderTitle(){
         push();
         translate(this.chartPosX, this.chartPosY - this.chartHeight - 30);
-        fill(this.headingTextColour);
+        fill(this.axisColour);
         stroke(100);
         textSize(20);
         textAlign(CENTER,CENTER);
@@ -137,7 +129,7 @@ class ClusteredBarChart {
 
         push();
         translate(this.chartPosX, this.chartPosY - this.chartHeight +150);
-        fill(this.headingTextColour);
+        fill(this.axisColour);
         stroke(100);
         textSize(20);
         textAlign(CENTER,CENTER);
@@ -146,15 +138,12 @@ class ClusteredBarChart {
 
         push();
         translate(this.chartPosX, this.chartPosY - this.chartHeight +480);
-        fill(this.headingTextColour);
+        fill(this.axisColour);
         stroke(100);
         textSize(20);
         textAlign(CENTER,CENTER);
         text(this.chartTitleX, 250, 0);
         pop();
-
-        
-       
     }
 }
 

@@ -1,8 +1,10 @@
 class PyramidChart {
     constructor(obj) {
+        //data values
         this.data = obj.data;
         this.xValue = obj.xValue;
-        this.yValue = obj.yValue;   // Array of segments to stack (e.g., ['Male', 'Female'])
+        this.yValue = obj.yValue;   
+        //cahrt settings
         this.chartHeight = obj.chartHeight || 200;
         this.chartWidth = obj.chartWidth || 300;
         this.barHeight = obj.barHeight || 21;
@@ -14,13 +16,14 @@ class PyramidChart {
         this.chartPosX = obj.xPos || 1000;
         this.chartPosY = obj.yPos || 1700;
         this.stackedWidth = obj.stackedWidth || 150;
-
+        //colours
         this.axisColour = color(255, 100, 100);
         this.axisTickColour = color(155, 100, 100);
-        this.femaleBarColour = color(0,0,0);
-        this.maleBarColour = color(255,255,255);
-        this.axisTextColour = color(255, 0, 0);
+        this.femaleBarColour = color(132,93,191);
+        this.maleBarColour = color(78,22,147);
+        this.axisTextColour = color(78,22,147);
         this.headingTextColour = color(0);
+        //ticks and titles
         this.numTicks = 10;
         this.tickLength = 10;
         this.chartTitle = obj.chartTitle || "Pyramid Chart";
@@ -31,24 +34,19 @@ class PyramidChart {
     renderBars() {
         push();
         translate(this.chartPosX, this.chartPosY); // Move to chart position
-        
     
         push();
         translate(this.margin, 0); // Apply margin for x-axis
-    
-        // Loop through each data entry (county)
+        
         for (let i = 0; i < this.data.length; i++) {
             let yPos = (this.barWidth + -this.gap) * i;
             let stackedWidth = this.stackedWidth;  // Start stacking from 0 (center of pyramid)
     
-            // Loop through each segment (Male, Female)
             for (let j = 0; j < this.yValue.length; j++) {
                 let barWidth = this.data[i][this.yValue[j]] * this.scaler;
-    
                 // Ensure the bar starts from the center
                 fill(j == 0 ? color(this.femaleBarColour) : color(this.maleBarColour));  // Different colors for Male and Female
                 stroke(255,255,255);
-                
                 // Draw the stacked bar segment (extend symmetrically from the center)
                 let leftPos = stackedWidth - barWidth ; // Calculate position for the pyramid effect
                 rect(leftPos, -yPos, barWidth, -this.barWidth); 
@@ -86,15 +84,6 @@ class PyramidChart {
         pop();
     }
 
-    
-
-    
-
-
-
-
-
-    
     renderLabels() {
         push();
         translate(this.chartPosX, this.chartPosY);
@@ -102,13 +91,12 @@ class PyramidChart {
         translate(this.margin, 0);
         for (let i = 0; i < this.data.length; i++) {
             let yPos = (this.barWidth + -this.gap) * i;
- 
             fill(this.axisTextColour);
             noStroke();
             textAlign(LEFT, CENTER);
             textSize(12);
             push();
-            translate(this.stackedWidth + 15, -yPos + this.barHeight /120);
+            translate(this.stackedWidth - 205, -yPos + this.barHeight /120);
             text(this.data[i][this.xValue], 0, 0);
             pop();
         }
@@ -132,7 +120,7 @@ class PyramidChart {
         stroke(100);
         textSize(20);
         textAlign(CENTER,CENTER);
-        text(this.chartTitleY, 150, 100);
+        text(this.chartTitleY, 100, 100);
         pop();
 
         push();
@@ -141,7 +129,7 @@ class PyramidChart {
         stroke(100);
         textSize(20);
         textAlign(CENTER,CENTER);
-        text(this.chartTitleX, -50, 0);
+        text(this.chartTitleX, -130, 0);
         pop();
     }
 }

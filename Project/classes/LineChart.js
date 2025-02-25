@@ -1,8 +1,10 @@
 class LineChart {
     constructor(obj) {
-        this.data2 = obj.data2;
+        //data values
+        this.data = obj.data;
         this.xValue = obj.xValue;
         this.yValue = obj.yValue;
+        //chart settings
         this.chartHeight = obj.chartHeight || 400;
         this.chartWidth = obj.chartWidth || 400;
         this.barWidth = obj.barWidth || 10;
@@ -10,14 +12,16 @@ class LineChart {
         this.axisThickness = obj.axisThickness || 1;
         this.chartPosX = obj.chartPosX || 200;
         this.chartPosY = obj.chartPosY || 1200;
-        this.gap = (this.chartWidth - (this.data2.length * this.barWidth) - (this.margin * 2)) / (this.data2.length - 1);
-        this.scaler = this.chartHeight / (max(this.data2.map(row => row[this.yValue])));
-        this.maxValue = max(this.data2.map((x) => x[this.yValue]));
+        this.gap = (this.chartWidth - (this.data.length * this.barWidth) - (this.margin * 2)) / (this.data.length - 1);
+        this.scaler = this.chartHeight / (max(this.data.map(row => row[this.yValue])));
+        this.maxValue = max(this.data.map((x) => x[this.yValue]));
+        //colours
         this.axisColour = color(50);
         this.axisTickColour = color(100);
         this.barColor = color(30, 60, 120);
         this.axisTextColour = color(0);
         this.headingTextColour = color(0);
+        //ticks and titles
         this.numTicks = 5;
         this.tickLength = 10;
         this.chartTitle = obj.chartTitle || "Line Chart";
@@ -35,18 +39,14 @@ class LineChart {
             strokeWeight(2);
        
             beginShape();
-            for (let i = 0; i < this.data2.length; i++) {
+            for (let i = 0; i < this.data.length; i++) {
                 let xPos = (this.barWidth + this.gap) * i;
-       
-                vertex(xPos, -this.data2[i][this.yValue]*this.scaler);
-               
-                stroke(51, 153, 255);
-                ellipse(xPos,-this.data2[i][this.yValue]*this.scaler , 5, 5);
+                vertex(xPos, -this.data[i][this.yValue]*this.scaler);    //places each data point along the graph. It uses negative scaling to invert Y-axis
+                stroke(51, 153, 255);         //Draws a small blue circle (ellipse) at each data point to make them visible
+                ellipse(xPos,-this.data[i][this.yValue]*this.scaler , 5, 5);
             }
             endShape();
-       
             pop();
-       
     }
  
     renderAxis() {
@@ -66,9 +66,8 @@ class LineChart {
  
         push();
         translate(this.margin, 0);
-        for (let i = 0; i < this.data2.length; i++) {
+        for (let i = 0; i < this.data.length; i++) {
             let xPos = (this.barWidth + this.gap) * i;
- 
             fill(this.axisTextColour);
             noStroke();
             textAlign(LEFT, CENTER);
@@ -76,7 +75,7 @@ class LineChart {
             push();
             translate(xPos + this.barWidth / 2, 20);
             rotate(45);
-            text(this.data2[i][this.xValue], 0, 0);
+            text(this.data[i][this.xValue], 0, 0);
             pop();
         }
         pop();
@@ -99,9 +98,7 @@ class LineChart {
         for (let i = 0; i <= this.numTicks; i++) {
             let y = -tickIncrement * i;
             line(0, y, -this.tickLength, y);  // Draw the tick lines
-   
             let tickValue = (this.maxValue / this.numTicks) * i;
-           
             // Adjust text position
             textAlign(RIGHT, CENTER);  // Align text to the right of the tick line
             push();
@@ -112,14 +109,13 @@ class LineChart {
             text(tickValue, 0, 0);  // Render the tick value
             pop();
         }
-   
         pop();
     }
 
     renderTitle(){
         push();
         translate(this.chartPosX, this.chartPosY - this.chartHeight - 30);
-        fill(this.headingTextColour);
+        fill(this.barColor);
         stroke(100);
         textSize(20);
         textAlign(CENTER,CENTER);
@@ -128,7 +124,7 @@ class LineChart {
 
         push();
         translate(-this.chartPosX, this.chartPosY - this.chartHeight +150);
-        fill(this.headingTextColour);
+        fill(this.barColor);
         stroke(100);
         textSize(20);
         textAlign(CENTER,CENTER);
@@ -137,13 +133,11 @@ class LineChart {
 
         push();
         translate(this.chartPosX, this.chartPosY - this.chartHeight +480);
-        fill(this.headingTextColour);
+        fill(this.barColor);
         stroke(100);
         textSize(20);
         textAlign(CENTER,CENTER);
         text(this.chartTitleX, 250, 0);
         pop();
-
-        
     }
 }
