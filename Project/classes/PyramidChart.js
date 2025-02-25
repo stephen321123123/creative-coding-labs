@@ -5,14 +5,15 @@ class PyramidChart {
         this.yValue = obj.yValue;   // Array of segments to stack (e.g., ['Male', 'Female'])
         this.chartHeight = obj.chartHeight || 200;
         this.chartWidth = obj.chartWidth || 300;
-        this.barHeight = obj.barHeight || 20;
+        this.barHeight = obj.barHeight || 21;
         this.barWidth = obj.barWidth || 15;
         this.margin = obj.margin || -15;
         this.scaler = this.chartWidth / (max(this.data.map(row => row[this.yValue[0]] + row[this.yValue[1]])));
         this.gap = (this.chartHeight - (this.data.length * this.barHeight) - (this.margin * 2)) / (this.data.length - 1);
         this.axisThickness = obj.axisThickness || 2;
-        this.chartPosX = obj.xPos || 450;
-        this.chartPosY = obj.yPos || 550;
+        this.chartPosX = obj.xPos || 600;
+        this.chartPosY = obj.yPos || 900;
+        this.stackedWidth = obj.stackedWidth || 150;
 
         this.axisColour = color(255, 100, 100);
         this.axisTickColour = color(155, 100, 100);
@@ -29,12 +30,12 @@ class PyramidChart {
         
     
         push();
-        translate(this.margin, ); // Apply margin for x-axis
+        translate(this.margin, 0); // Apply margin for x-axis
     
         // Loop through each data entry (county)
         for (let i = 0; i < this.data.length; i++) {
             let yPos = (this.barWidth + -this.gap) * i;
-            let stackedWidth = 150;  // Start stacking from 0 (center of pyramid)
+            let stackedWidth = this.stackedWidth;  // Start stacking from 0 (center of pyramid)
     
             // Loop through each segment (Male, Female)
             for (let j = 0; j < this.yValue.length; j++) {
@@ -49,8 +50,6 @@ class PyramidChart {
                 rect(leftPos, -yPos, barWidth, -this.barWidth); 
                 stackedWidth += barWidth;  // Update stacked width for the next segment
             }
-    
-           
         }
         pop();
         pop();
@@ -85,35 +84,31 @@ class PyramidChart {
 
     
 
+    
 
 
 
+
+
+    
     renderLabels() {
         push();
         translate(this.chartPosX, this.chartPosY);
-    
         push();
-        translate(this.margin, 0) // Apply margin for x-axis
-    
+        translate(this.margin, 0);
         for (let i = 0; i < this.data.length; i++) {
-            let yPos = (this.barHeight + this.gap) * i;
-    
+            let yPos = (this.barWidth + -this.gap) * i;
+ 
             fill(this.axisTextColour);
             noStroke();
             textAlign(LEFT, CENTER);
             textSize(12);
-    
-            // Position text just to the right of the end of the bar
             push();
-            translate(this.data[i][this.yValue[0]] * this.scaler + 160, -yPos + this.barHeight /2);  // Adjust positioning with +5 for spacing
-            text(this.data[i][this.xValue], 0, 0); // Display the label (County name)
+            translate(this.stackedWidth + 15, -yPos + this.barHeight /120);
+            text(this.data[i][this.xValue], 0, 0);
             pop();
         }
-    
         pop();
         pop();
     }
-    
-
-    
 }

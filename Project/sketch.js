@@ -39,15 +39,15 @@ charts.push(new HorizontalChart({
     charts.push(new SecondBarChart({
         data: cleanedData,
         xValue: "County",  
-        yValue: ["Male", "Female"]
-       
+        yValue: "Female",
+        zValue: "Male"
     }));
 
     // pyramid chart of male/ female population
     charts.push(new PyramidChart({
         data: cleanedData,
         xValue: "County",  
-        yValue: ["Male", "Female"],   
+        yValue: ["Male", "Female"]   
     }));
 }
  
@@ -55,9 +55,10 @@ function draw(){
     background(200);
     charts.forEach(chart => {
         chart.renderBars();
-        chart.renderLabels();
-        chart.renderAxis();
-        chart.renderTicks();
+       chart.renderLabels();
+       chart.renderAxis();
+    chart.renderTicks();
+     
 });
 }
 

@@ -20,7 +20,6 @@ class HorizontalChart {
         this.barColour = color(30, 60, 120);
         this.axisTextColour = color(0);
         this.strokeColour = color(255 ,255, 255);
- 
         this.numTicks = 5;
         this.tickLength = 10;
     }
