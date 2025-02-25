@@ -10,7 +10,7 @@ class HorizontalChart {
  
         this.axisThickness = obj.axisThickness || 2;
         this.chartPosX = obj.chartPosX || 50;
-        this.chartPosY = obj.chartPosY || 550;
+        this.chartPosY = obj.chartPosY || 750;
                
         this.gap = (this.chartHeight - (this.data.length * this.barWidth) - (this.margin * 2)) / (this.data.length - 1);
         this.scaler = this.chartWidth / (max(cleanedData.map(row => row[this.yValue])));
@@ -32,16 +32,17 @@ class HorizontalChart {
         noStroke();
         strokeWeight(this.axisThickness);
  
-        line(0, 0, 0, this.chartHeight); // Vertical axis
-        line(0, 0, this.chartWidth, 0); // Horizontal axis
+      
  
         push();
         for (let i = 0; i < this.data.length; i++) {
             let yPos = (this.barWidth + -this.gap) * i;
             fill(this.barColour);
-            rect(0, yPos, this.data[i][this.yValue] * this.scaler, this.barWidth);
+            rect(0, -yPos, this.data[i][this.yValue] * this.scaler, -this.barWidth);
         }
- 
+
+    
+
         pop();
         pop();
     }
@@ -52,7 +53,7 @@ class HorizontalChart {
         noFill();
         stroke(this.axisColour);
         strokeWeight(this.axisThickness);
-        line(0, 0, 0, this.chartHeight); // Vertical axis
+        line(0, 0, 0, -this.chartHeight); // Vertical axis
         line(0, 0, this.chartWidth, 0); // Horizontal axis
         pop();
     }
@@ -70,17 +71,20 @@ class HorizontalChart {
             textAlign(LEFT, CENTER);
             textSize(12);
             push();
-            translate(this.data[i][this.yValue] * this.scaler - 10, yPos + this.barWidth / 2);
+            translate(this.data[i][this.yValue] * this.scaler - 10, -yPos + -this.barWidth / 2);
             text(this.data[i][this.xValue], 0, 0);
             pop();
         }
         pop();
         pop();
     }
+
+  
  
     renderTicks() {
         push();
         translate(this.chartPosX, this.chartPosY);
+        
         noFill();
         stroke(this.axisColour);
         strokeWeight(this.axisThickness);
@@ -92,7 +96,7 @@ class HorizontalChart {
  
         for (let i = 0; i <= this.numTicks; i++) {
             let x = tickIncrement * i;
-            line(x, 0, x, -this.tickLength);
+            line(x, 0, x, this.tickLength);
         }
         
  

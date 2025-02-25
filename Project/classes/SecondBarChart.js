@@ -11,7 +11,7 @@ class SecondBarChart {
         this.scaler = this.chartHeight / (max(this.data.map(row => row[this.yValue[0]] + row[this.yValue[1]])));
         this.gap = (this.chartWidth - (this.data.length * this.barWidth) - (this.margin * 2)) / (this.data.length - 1);
         this.axisThickness = obj.axisThickness || 2;
-        this.chartPosX = obj.xPos || 150;
+        this.chartPosX = obj.xPos || 50;
         this.chartPosY = obj.yPos || 500;
 
         this.axisColour = color(255, 100, 100);

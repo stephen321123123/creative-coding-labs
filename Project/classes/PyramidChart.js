@@ -3,7 +3,7 @@ class PyramidChart {
         this.data = obj.data;
         this.xValue = obj.xValue;
         this.yValue = obj.yValue;   // Array of segments to stack (e.g., ['Male', 'Female'])
-        this.chartHeight = obj.chartHeight || 300;
+        this.chartHeight = obj.chartHeight || 200;
         this.chartWidth = obj.chartWidth || 300;
         this.barHeight = obj.barHeight || 20;
         this.barWidth = obj.barWidth || 10;
@@ -12,7 +12,7 @@ class PyramidChart {
         this.gap = (this.chartHeight - (this.data.length * this.barHeight) - (this.margin * 2)) / (this.data.length - 1);
         this.axisThickness = obj.axisThickness || 2;
         this.chartPosX = obj.xPos || 500;
-        this.chartPosY = obj.yPos || 950;
+        this.chartPosY = obj.yPos || 650;
 
         this.axisColour = color(255, 100, 100);
         this.axisTickColour = color(155, 100, 100);
@@ -51,7 +51,7 @@ class PyramidChart {
                 
                 // Draw the stacked bar segment (extend symmetrically from the center)
                 let leftPos = stackedWidth - barWidth ; // Calculate position for the pyramid effect
-                rect(leftPos, -yPos, barWidth, this.barWidth); 
+                rect(leftPos, -yPos, barWidth, -this.barWidth); 
                 stackedWidth += barWidth;  // Update stacked width for the next segment
             }
     
