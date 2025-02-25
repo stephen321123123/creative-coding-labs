@@ -17,9 +17,12 @@ class BarChart {
         this.axisTickColour = color(100,100);
         this.barColour = color(157,155,189);
         this.axisTextColour = color(100);
+        this.headingTextColour = color(0);
         this.numTicks = 5;
         this.tickLength = 10;
-        this.chartTitle = obj.chartTitle || "Bar Chart"
+        this.chartTitle = obj.chartTitle || "Bar Chart";
+        this.chartTitleY = obj.chartTitle || "Population";
+        this.chartTitleX = obj.chartTitle || "County";
     }
 
     //methods
@@ -122,10 +125,29 @@ class BarChart {
     renderTitle(){
         push();
         translate(this.chartPosX, this.chartPosY - this.chartHeight - 30);
-        fill(this.axisTextColour);
+        fill(this.headingTextColour);
+        stroke(100);
         textSize(20);
         textAlign(CENTER,CENTER);
         text(this.chartTitle, 250, 0);
+        pop();
+
+        push();
+        translate(-this.chartPosX, this.chartPosY - this.chartHeight +150);
+        fill(this.headingTextColour);
+        stroke(100);
+        textSize(20);
+        textAlign(CENTER,CENTER);
+        text(this.chartTitleY, 250, 0);
+        pop();
+
+        push();
+        translate(this.chartPosX, this.chartPosY - this.chartHeight +480);
+        fill(this.headingTextColour);
+        stroke(100);
+        textSize(20);
+        textAlign(CENTER,CENTER);
+        text(this.chartTitleX, 250, 0);
         pop();
     }
 }

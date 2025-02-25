@@ -19,11 +19,15 @@ class HorizontalChart {
         this.axisTickColour = color(100);
         this.barColour = color(30, 60, 120);
         this.axisTextColour = color(0);
+        this.headingTextColour = color(0);
         this.strokeColour = color(255 ,255, 255);
         this.numTicks = 5;
         this.tickLength = 10;
         this.chartTitle = obj.chartTitle || "Horizontal Chart";
+        this.chartTitleY = obj.chartTitleY || "Population";
+        this.chartTitleX = obj.chartTitleX || "County";
     }
+    
  
     renderBars() {
         push();
@@ -108,10 +112,31 @@ class HorizontalChart {
     renderTitle(){
         push();
         translate(this.chartPosX, this.chartPosY - this.chartHeight - 30);
-        fill(this.axisTextColour);
+        fill(this.headingTextColour);
+        stroke(100);
         textSize(20);
-        textAlign(CENTER,CENTER);
+        textAlign(RIGHT,CENTER);
         text(this.chartTitle, 250, 0);
         pop();
+
+        push();
+        translate(this.chartPosX, this.chartPosY - this.chartHeight +150);
+        fill(this.headingTextColour);
+        stroke(100);
+        textSize(20);
+        textAlign(CENTER,CENTER);
+        text(this.chartTitleY, 150, 100);
+        pop();
+
+        push();
+        translate(this.chartPosX, this.chartPosY - this.chartHeight +100);
+        fill(this.headingTextColour);
+        stroke(100);
+        textSize(20);
+        textAlign(CENTER,CENTER);
+        text(this.chartTitleX, -50, 0);
+        pop();
+
+        
     }
 }

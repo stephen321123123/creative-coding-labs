@@ -1,6 +1,6 @@
 class LineChart {
     constructor(obj) {
-        this.data = obj.data;
+        this.data2 = obj.data2;
         this.xValue = obj.xValue;
         this.yValue = obj.yValue;
         this.chartHeight = obj.chartHeight || 400;
@@ -10,16 +10,19 @@ class LineChart {
         this.axisThickness = obj.axisThickness || 1;
         this.chartPosX = obj.chartPosX || 200;
         this.chartPosY = obj.chartPosY || 1200;
-        this.gap = (this.chartWidth - (this.data.length * this.barWidth) - (this.margin * 2)) / (this.data.length - 1);
-        this.scaler = this.chartHeight / (max(this.data.map(row => row[this.yValue])));
-        this.maxValue = max(this.data.map((x) => x[this.yValue]));
+        this.gap = (this.chartWidth - (this.data2.length * this.barWidth) - (this.margin * 2)) / (this.data2.length - 1);
+        this.scaler = this.chartHeight / (max(this.data2.map(row => row[this.yValue])));
+        this.maxValue = max(this.data2.map((x) => x[this.yValue]));
         this.axisColour = color(50);
         this.axisTickColour = color(100);
         this.barColor = color(30, 60, 120);
         this.axisTextColour = color(0);
+        this.headingTextColour = color(0);
         this.numTicks = 5;
         this.tickLength = 10;
         this.chartTitle = obj.chartTitle || "Line Chart";
+        this.chartTitleY = obj.chartTitleY || "Population";
+        this.chartTitleX = obj.chartTitleX || "County";
     }
  
     renderBars() {
@@ -32,13 +35,13 @@ class LineChart {
             strokeWeight(2);
        
             beginShape();
-            for (let i = 0; i < this.data.length; i++) {
+            for (let i = 0; i < this.data2.length; i++) {
                 let xPos = (this.barWidth + this.gap) * i;
        
-                vertex(xPos, -this.data[i][this.yValue]*this.scaler);
+                vertex(xPos, -this.data2[i][this.yValue]*this.scaler);
                
                 stroke(51, 153, 255);
-                ellipse(xPos,-this.data[i][this.yValue]*this.scaler , 5, 5);
+                ellipse(xPos,-this.data2[i][this.yValue]*this.scaler , 5, 5);
             }
             endShape();
        
@@ -63,7 +66,7 @@ class LineChart {
  
         push();
         translate(this.margin, 0);
-        for (let i = 0; i < this.data.length; i++) {
+        for (let i = 0; i < this.data2.length; i++) {
             let xPos = (this.barWidth + this.gap) * i;
  
             fill(this.axisTextColour);
@@ -73,7 +76,7 @@ class LineChart {
             push();
             translate(xPos + this.barWidth / 2, 20);
             rotate(45);
-            text(this.data[i][this.xValue], 0, 0);
+            text(this.data2[i][this.xValue], 0, 0);
             pop();
         }
         pop();
@@ -104,6 +107,7 @@ class LineChart {
             push();
             // Position text a little to the left of the tick line
             translate(-this.tickLength - 5, y);  // Use 'y' directly for vertical positioning
+            rotate(45);
             noStroke();
             text(tickValue, 0, 0);  // Render the tick value
             pop();
@@ -115,10 +119,31 @@ class LineChart {
     renderTitle(){
         push();
         translate(this.chartPosX, this.chartPosY - this.chartHeight - 30);
-        fill(this.axisTextColour);
+        fill(this.headingTextColour);
+        stroke(100);
         textSize(20);
         textAlign(CENTER,CENTER);
         text(this.chartTitle, 250, 0);
         pop();
+
+        push();
+        translate(-this.chartPosX, this.chartPosY - this.chartHeight +150);
+        fill(this.headingTextColour);
+        stroke(100);
+        textSize(20);
+        textAlign(CENTER,CENTER);
+        text(this.chartTitleY, 250, 0);
+        pop();
+
+        push();
+        translate(this.chartPosX, this.chartPosY - this.chartHeight +480);
+        fill(this.headingTextColour);
+        stroke(100);
+        textSize(20);
+        textAlign(CENTER,CENTER);
+        text(this.chartTitleX, 250, 0);
+        pop();
+
+        
     }
 }

@@ -20,9 +20,12 @@ class PyramidChart {
         this.femaleBarColour = color(0,0,0);
         this.maleBarColour = color(255,255,255);
         this.axisTextColour = color(255, 0, 0);
+        this.headingTextColour = color(0);
         this.numTicks = 10;
         this.tickLength = 10;
         this.chartTitle = obj.chartTitle || "Pyramid Chart";
+        this.chartTitleY = obj.chartTitleY || "Population";
+        this.chartTitleX = obj.chartTitleX || "County";
     }
 
     renderBars() {
@@ -116,10 +119,29 @@ class PyramidChart {
     renderTitle(){
         push();
         translate(this.chartPosX, this.chartPosY - this.chartHeight - 30);
-        fill(this.axisTextColour);
+        fill(this.headingTextColour);
+        stroke(100);
+        textSize(20);
+        textAlign(RIGHT,CENTER);
+        text(this.chartTitle, 250, 0);
+        pop();
+
+        push();
+        translate(this.chartPosX, this.chartPosY - this.chartHeight +150);
+        fill(this.headingTextColour);
+        stroke(100);
         textSize(20);
         textAlign(CENTER,CENTER);
-        text(this.chartTitle, 250, 0);
+        text(this.chartTitleY, 150, 100);
+        pop();
+
+        push();
+        translate(this.chartPosX, this.chartPosY - this.chartHeight +100);
+        fill(this.headingTextColour);
+        stroke(100);
+        textSize(20);
+        textAlign(CENTER,CENTER);
+        text(this.chartTitleX, -50, 0);
         pop();
     }
 }

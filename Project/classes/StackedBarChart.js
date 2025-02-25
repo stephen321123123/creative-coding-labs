@@ -17,9 +17,11 @@ class StackedBarChart {
         this.femaleBarColour = color(30,107,215);
         this.maleBarColour = color(75,107,151);
         this.axisTextColour = color(100, 100, 100);
+        this.headingTextColour = color(0);
         this.numTicks = 10;
         this.tickLength = 10;
         this.chartTitle = obj.chartTitle || "Stacked Bar Chart";
+        this.chartTitleX = obj.chartTitleX || "County";
     }
  
     renderBars() {
@@ -124,10 +126,20 @@ class StackedBarChart {
     renderTitle(){
         push();
         translate(this.chartPosX, this.chartPosY - this.chartHeight - 30);
-        fill(this.axisTextColour);
+        fill(this.headingTextColour);
+        stroke(100);
+        textSize(20);
+        textAlign(RIGHT,CENTER);
+        text(this.chartTitle, 250, 0);
+        pop();
+
+        push();
+        translate(this.chartPosX, this.chartPosY - this.chartHeight +480);
+        fill(this.headingTextColour);
+        stroke(100);
         textSize(20);
         textAlign(CENTER,CENTER);
-        text(this.chartTitle, 250, 0);
+        text(this.chartTitleX, 200, 0);
         pop();
     }
  

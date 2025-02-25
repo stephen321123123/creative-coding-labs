@@ -1,10 +1,12 @@
 let data;
 let cleanedData = [];
+let cleanedData2 = [];
 let charts = [];
 
  
 function preload(){
-    data = loadTable('./data/Data.csv', 'csv', 'header')
+    data = loadTable('./data/Data.csv', 'csv', 'header');
+    data2 = loadTable('./data/Data01.csv', 'csv', 'header');
 }
  
 function setup() {
@@ -36,7 +38,7 @@ charts.push(new HorizontalChart({
     }));
 
     // second barchart of male/ female population
-    charts.push(new SecondBarChart({
+    charts.push(new ClusteredBarChart({
         data: cleanedData,
         xValue: "County",  
         yValue: "Female",
@@ -52,7 +54,7 @@ charts.push(new HorizontalChart({
 
      // pyramid chart of male/ female population
      charts.push(new LineChart({
-        data: cleanedData,
+        data2: cleanedData,
         xValue: "County",  
         yValue: "Male",
     }));
@@ -74,11 +76,19 @@ function cleanData(){
     for (let i = 0; i < data.rows.length; i++) {
         cleanedData.push(data.rows[i].obj)
     }
+    for (let i = 0; i < data.rows.length; i++) {
+        cleanedData2.push(data.rows[i].obj)
+    }
 
     for (let i = 0; i < cleanedData.length; i++) {
         cleanedData[i].Female = parseInt(cleanedData[i].Female)
         cleanedData[i].Male = parseInt(cleanedData[i].Male)
         cleanedData[i].Total = parseInt(cleanedData[i].Total)
+    }
+    for (let i = 0; i < cleanedData2.length; i++) {
+        cleanedData2[i].Female = parseInt(cleanedData2[i].Female)
+        cleanedData2[i].Male = parseInt(cleanedData2[i].Male)
+        cleanedData2[i].Total = parseInt(cleanedData2[i].Total)
     }
 }
  

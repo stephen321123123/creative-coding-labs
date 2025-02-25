@@ -1,4 +1,4 @@
-class SecondBarChart {
+class ClusteredBarChart {
     constructor(obj){              //initializes properties for the chart
         this.data = obj.data;      //holds data passed through obj
         this.xValue = obj.xValue;
@@ -20,9 +20,12 @@ class SecondBarChart {
         this.femaleBarColour = color(132,130,193);
         this.maleBarColour = color(40,38,114);
         this.axisTextColour = color(100, 100, 100);
+        this.headingTextColour = color(0);
         this.numTicks = 5;
         this.tickLength = 10;
         this.chartTitle = obj.chartTitle || "Clustered Bar Chart";
+        this.chartTitleY = obj.chartTitleY || "Population";
+        this.chartTitleX = obj.chartTitleX || "County";
     }
 
     //methods
@@ -125,11 +128,33 @@ class SecondBarChart {
     renderTitle(){
         push();
         translate(this.chartPosX, this.chartPosY - this.chartHeight - 30);
-        fill(this.axisTextColour);
+        fill(this.headingTextColour);
+        stroke(100);
         textSize(20);
         textAlign(CENTER,CENTER);
         text(this.chartTitle, 250, 0);
         pop();
+
+        push();
+        translate(this.chartPosX, this.chartPosY - this.chartHeight +150);
+        fill(this.headingTextColour);
+        stroke(100);
+        textSize(20);
+        textAlign(CENTER,CENTER);
+        text(this.chartTitleY, -200, 0);
+        pop();
+
+        push();
+        translate(this.chartPosX, this.chartPosY - this.chartHeight +480);
+        fill(this.headingTextColour);
+        stroke(100);
+        textSize(20);
+        textAlign(CENTER,CENTER);
+        text(this.chartTitleX, 250, 0);
+        pop();
+
+        
+       
     }
 }
 
