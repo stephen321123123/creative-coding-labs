@@ -19,7 +19,7 @@ class LineChart {
         this.axisColour = color(50);
         this.axisTickColour = color(100);
         this.barColor = color(30, 60, 120);
-        this.axisTextColour = color(0);
+        this.axisTextColour = color(100);
         this.headingTextColour = color(0);
         //ticks and titles
         this.numTicks = 5;
@@ -71,7 +71,7 @@ class LineChart {
             fill(this.axisTextColour);
             noStroke();
             textAlign(LEFT, CENTER);
-            textSize(12);
+            textSize(10);
             push();
             translate(xPos + this.barWidth / 2, 20);
             rotate(45);
@@ -107,6 +107,7 @@ class LineChart {
             translate(-this.tickLength - 5, y);  // Use 'y' directly for vertical positioning
             rotate(45);
             noStroke();
+            fill(this.barColor)
             text(tickValue, 0, 0);  // Render the tick value
             pop();
         }
