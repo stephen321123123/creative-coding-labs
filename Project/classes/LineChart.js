@@ -9,7 +9,7 @@ class LineChart {
         this.chartWidth = obj.chartWidth || 400;
         this.barWidth = obj.barWidth || 10;
         this.margin = obj.margin || 10;
-        this.axisThickness = obj.axisThickness || 1;
+        this.axisThickness = obj.axisThickness || 1.5;
         this.chartPosX = obj.chartPosX || 200;
         this.chartPosY = obj.chartPosY || 1200;
         this.gap = (this.chartWidth - (this.data.length * this.barWidth) - (this.margin * 2)) / (this.data.length - 1);
@@ -36,7 +36,7 @@ class LineChart {
        
             noFill();
             stroke(this.barColor);
-            strokeWeight(2);
+            strokeWeight(3);
        
             beginShape();
             for (let i = 0; i < this.data.length; i++) {
@@ -98,6 +98,7 @@ class LineChart {
         for (let i = 0; i <= this.numTicks; i++) {
             let y = -tickIncrement * i;
             line(0, y, -this.tickLength, y);  // Draw the tick lines
+            line (0, y, this.chartWidth, y);
             let tickValue = (this.maxValue / this.numTicks) * i;
             // Adjust text position
             textAlign(RIGHT, CENTER);  // Align text to the right of the tick line
